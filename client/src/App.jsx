@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { Flex, Text } from "@chakra-ui/react";
 const App = () => {
   const [name, setName] = useState("not set");
   useEffect(() => {
@@ -11,7 +11,16 @@ const App = () => {
   });
   return (
     <div className="app">
-      <p>{name}</p>
+      <Flex
+        height="100vh"
+        width="100%"
+        align="center"
+        justify="center"
+        bg="blue.400"
+        color="white"
+      >
+        <Text fontSize="3xl">{name}</Text>
+      </Flex>
     </div>
   );
 };
