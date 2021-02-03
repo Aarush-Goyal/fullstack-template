@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Flex, Text } from "@chakra-ui/react";
+import React from "react";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 const App = () => {
-  const [name, setName] = useState("not set");
-  useEffect(() => {
-    axios
-      .get("/api")
-      .then((res) => res.data)
-      .then((res) => setName(res.name));
-  });
   return (
-    <div className="app">
-      <Flex
-        height="100vh"
-        width="100%"
-        align="center"
-        justify="center"
-        bg="blue.400"
-        color="white"
-      >
-        <Text fontSize="3xl">{name}</Text>
-      </Flex>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
   );
 };
 
