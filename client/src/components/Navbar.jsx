@@ -7,7 +7,7 @@ import {
   Button,
   Stack,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 const Logo = (props) => {
   return (
@@ -65,12 +65,10 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
 const MenuItem = ({ children, component, ...rest }) => {
   return (
-    <ChakraLink>
-      <Link href={"#" + component}>
-        <Text display="block" {...rest}>
-          {children}
-        </Text>
-      </Link>
+    <ChakraLink as={ReactRouterLink} to={component}>
+      <Text display="block" {...rest}>
+        {children}
+      </Text>
     </ChakraLink>
   );
 };
